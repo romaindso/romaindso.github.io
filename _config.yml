@@ -12,10 +12,13 @@ url: http://romaindso.github.io/
 # Harmony theme configuration. Please change accordingly.
 harmony:
   name: romaindso.github.io
-  # Little description about your site
-  description: 
+  description:  
+  # 'meta_description:' Write an awesome description for your new site here.
+  # It will appear in your document head meta (for Google search results) and 
+  # in your feed.xml site description.
   meta_description: > # 
-    Hi ! I'm a web developper based in France and this is my place to share my coding experiences. I mainly talk about front-end development, NodeJS and other cool stuff.  
+   Hi ! I'm a web developper based in France and this is my place to share my coding experiences. 
+   I mainly talk about front-end development, NodeJS and other cool stuff.  
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details
     name: Romain Durand Saint Omer
