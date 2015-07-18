@@ -13,14 +13,13 @@ url: https://romaindso.github.io
 harmony:
   name: romaindso.github.io
   # Little description about your site
-  description: 
-    meta_description: > # 
-      Web developper based in France at Bordeaux, this is my place to share my coding experiences. I mainly talk about front-end development, NodeJS and other cool stuff.  
-    basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
-    author: # Author details
-      name: Romain Durand Saint Omer
-      email: romain.dso@gmail.com
-      url: http://romaindso.github.io
+  description: My blog
+  meta_description: I'm a web developper based in France at Bordeaux. This is my place to share my coding experiences.
+  basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
+  author: # Author details
+    name: Romain Durand Saint Omer
+    email: romain.dso@gmail.com
+    url: http://romaindso.github.io
 
   # Google Analytics key, leave blank to ignore
   google_analytics_key: UA-xxxx-x
