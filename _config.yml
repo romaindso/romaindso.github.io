@@ -13,7 +13,7 @@ url: https://romaindso.github.io/
 harmony:
   name: romaindso.github.io
   # Little description about your site
-  description: My blog
+  description: #
   meta_description: I'm a web developper based in France at Bordeaux. This is my place to share my coding experiences.
   basetheme: theme-base-01 # pre defined thmes are darken, blue-water, redish.
   author: # Author details
@@ -22,7 +22,7 @@ harmony:
     url: http://romaindso.github.io
 
   # Google Analytics key, leave blank to ignore
-  google_analytics_key: UA-xxxx-x
+  google_analytics_key: UA-65293447-1
 
   # Profile links, leave blank to ignore
   social: 
