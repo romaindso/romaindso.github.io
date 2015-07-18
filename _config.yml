@@ -1,10 +1,10 @@
 # Harmony Jekyll theme general configurations 
 
 # Base URL
-baseurl:
+baseurl: #
 
 # Site live URL
-url: https://romaindso.github.io
+url: https://romaindso.github.io/
 
 # Localhost 
 # url: http://127.0.0.1:4000  
