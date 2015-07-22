@@ -4,10 +4,10 @@
 baseurl: #
 
 # Site live URL
-url: https://romaindso.github.io/
+# url: https://romaindso.github.io/
 
 # Localhost 
-# url: http://127.0.0.1:4000  
+url: http://127.0.0.1:4000  
 
 # Harmony theme configuration. Please change accordingly.
 harmony:
@@ -36,7 +36,7 @@ harmony:
   show_disclaimer: false
 
 # Conversion / Build settings 
-markdown:    kramdown
+markdown:    redcarpet
 # This is how you put pygments config in jekyll 2.0 instead of pygments: true
 highlighter: pygments 
 
