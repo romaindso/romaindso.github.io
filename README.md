@@ -1,7 +1,7 @@
 #romaindso.github.io
 
 ## How to install/run
-1. rvm --default use 2.2.2 
+1. Run 'rvm --default use 2.2.2' if ruby 2.2 is not your default system ruby. 
 2. Run `bundle install`
 3. Edit the _config.yml on root directory. Change `url` property to to 
 `http://127.0.0.1:4000` since you are going to run on localhost.
