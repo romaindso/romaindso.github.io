@@ -506,7 +506,13 @@ header.main-header {
 }
 footer.main-footer {
   padding: 1em 0;
-  @include MQ(M) { padding: 2em 0; }
+  position: absolute;
+  bottom:0;
+  width:100%;
+  @include MQ(M) { 
+    padding: 2em 0; 
+    position: initial;
+  }
 }
 .page-content {
   padding: 1em 0;
