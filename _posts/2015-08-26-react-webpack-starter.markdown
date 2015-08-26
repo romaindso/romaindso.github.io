@@ -196,7 +196,7 @@ $ npm install webpack --save-dev
 Après l'avoir installé, il suffit d'ajouter un nouveau script au `package.json` :
 {% highlight console %}
 "scripts": {
-  "start": "webpack-dev-server --content-base build/"
+  "start": "webpack-dev-server --port 8080 --content-base build/"
 }
 {% endhighlight %}
 
@@ -213,14 +213,14 @@ La feature ultime de Webpack c'est le Hot-reload. Il est en effet capable de dé
 Pour l'activer il faut d'abord ajouter au fichier `index.html` la ligne suivante, juste avant le chargement du fichier `bundle.js` :
 {% highlight html %}
 ...
-<script src="http://localhost:8080/webpack-dev-server.js"></script>
+<script src="/webpack-dev-server.js"></script>
 ...
 {% endhighlight %}
 
-On complète également avec une nouvelle entrée dans le webpack.config.js :
+Et on complète avec deux nouvelles options `--hot --inline` dans le package.json :
 {% highlight javascript %}
 ...
-entry: ['webpack/hot/dev-server', './app/index.js']
+"start": "webpack-dev-server --port 8080 --hot --inline --content-base build/"
 ...
 {% endhighlight %}
 
@@ -303,7 +303,7 @@ Ce qui nous donne dans la console :
 ...
 ERROR in ./app/App.jsx
 
-/Users/romaindurandsaintomer/dev/js/react-webpack-starter/app/App.jsx
+/Users/romain/dev/js/react-webpack-starter/app/App.jsx
   7:13  error  toto is defined but never used       no-unused-vars
   9:27  error  JSX attributes must use doublequote  react/jsx-quotes
 
