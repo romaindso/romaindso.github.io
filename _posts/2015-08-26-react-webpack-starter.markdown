@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "React Webpack Starter"
-date:   2015-08-26 23:43:01
+date:   2015-08-26 21:35:01
 description: Mise en place d'une stack de développement efficace avec React / Webpack, en profitant de la syntaxe ES6 et d'un outil de qualité de code (ESLint).
 categories:
 - blog
@@ -19,8 +19,14 @@ Deux façons donc de lire cet article :
 Enjoy :)
 
 ## Setup React
-Pour gérer nos dépendances, on utilise `npm` et on démarre en installant React :
+Pour gérer nos dépendances, on utilise `npm`. On démarre le projet :
+{% highlight console %}
+$ npm init
+{% endhighlight %}
 
+Il suffit de répondre oui (yes) à toute les questions pour initier le **package.json** à la racine du projet. <br>
+
+On installe ensuite notre première dépendance, React :
 {% highlight console %}
 $ npm install react --save
 {% endhighlight %}
@@ -48,13 +54,12 @@ Passons rapidement en revue ces 3 fichiers :
     </head>
     <body>
         <div id="root"></div>
-        <script src="/webpack-dev-server.js"></script>
         <script src="bundle.js"></script>
     </body>
 </html>
 {% endhighlight %}
 
-`index.html` c'est le fichier qui va inclure tout le reste. Lorsque l'on va lancer Webpack, ce dernier va compiler tout nos scripts JS dans le fichier `bundle.js`.
+`index.html` c'est le fichier de départ chargé par le navigateur web. Lorsque l'on va lancer Webpack, ce dernier va compiler tout nos scripts JS dans le seul fichier `bundle.js`.
 
 **index.js**
 {% highlight javascript %}
