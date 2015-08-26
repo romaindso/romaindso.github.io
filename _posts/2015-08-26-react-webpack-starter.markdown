@@ -186,7 +186,6 @@ loaders: [
 {% endhighlight %}
 
 ## Unleash the power !
-#### Environnement de dev
 On va enfin pouvoir s'atteler à faire tourner notre projet en local. Pour ce faire, Webpack fournit [webpack-dev-server][webpack-dev]. C'est un serveur Express (NodeJS) qui va nous permettre de servir tout nos fichiers
 statiques. On est sur un mode complétement différent de Gulp ou Grunt qui eux utilise le système de fichiers via des tâches de copier/coller.
 
@@ -206,10 +205,10 @@ On lance enfin l'ensemble :
 $ npm start
 {% endhighlight %}
 
-Et on accède à [http://localhost:8080/][localhost]. <br> TADAAaaaa ! Un joli Hello World :)
+Et on accède à [http://localhost:8080/][localhost]. <br> TADAAaaaa ! Un joli *Hello World* :)
 
 #### Hot-reload
-Webpack est capable de détecter les changements dans votre code et de relancer l'ensemble de l'application. C'est un puissant live-reload capable même de conserver l'état de vos composants React !
+La feature ultime de Webpack c'est le Hot-reload. Il est en effet capable de détecter les changements dans votre code et de relancer l'ensemble de l'application. C'est un puissant live-reload capable même de conserver l'état de vos composants React !
 
 Pour l'activer il faut d'abord ajouter au fichier `index.html` la ligne suivante, juste avant le chargement du fichier `bundle.js` :
 {% highlight html %}
@@ -228,13 +227,19 @@ entry: ['webpack/hot/dev-server', './app/index.js']
 #### Eslint
 Pour éviter les erreurs et les bugs, il est conseiller d'utliser un outil de qualité de code. Le nouveau venu c'est [ESLint][eslint] et il a de sérieux atouts. Compatible avec la syntaxe ES6 et le format JSX de React, il est aussi entièrement configurable.
 
-Pour en profiter il faut rappatrier ESLint lui même, le plugin pour React et babel-eslint pour qu'il soit capable de lire le code transpilé par Babel. Enfin, il faut aussi le loader adéquat pour exécuter ESLint au lancement de Webpack.
+Pour en profiter pleinement, voici les éléments à installer :
+
+- eslint : l'outil lui même
+- babel-eslint : un parser custom pour s'assurer qu'ESLint soit capable de lire correctement le code transpilé par Babel
+- eslint-plugin-react : un plugin pour ajouter des règles spécifiques à la syntaxe JSX de React.
+- eslint-loader : le loader adéquat pour exécuter ESLint au lancement de Webpack.
 
 {% highlight console %}
-$ npm install babel-eslint eslint eslint-plugin-react eslint-loader --save-dev
+$ npm install eslint babel-eslint eslint-plugin-react eslint-loader --save-dev
 {% endhighlight %}
 
 ESLint se base sur un fichier de configuration pour définir les différents règles. Ce fichier c'est le `.eslintrc` et on le place en général à la racine de son projet (comme le webpack.config.js).
+**.eslintrc**
 {% highlight javascript %}
 {
     "ecmaFeatures": {
@@ -272,6 +277,8 @@ ESLint se base sur un fichier de configuration pour définir les différents rè
 }
 {% endhighlight %}
 
+Par défaut ESLint intègre quelques reglès qu'il est possible d'overrider dans le fichier `.eslintrc`. Chaque règle est suivi d'un numéro : 0 = règle désactivé, 1 = warning, 2 = erreur bloquante. N'hésitez pas à consulter la [liste des règles][rules-eslint].
+
 Il faut maintenant exécuter ces règles côté Webpack. A la place d'un loader, on utilise un preloader, on s'assure ainsi que ESLint s'exécute avant toute autre opération (transpilation, compilation, etc etc).
 **webpack.config.js**
 {% highlight javascript %}
@@ -288,13 +295,29 @@ module: {
 ...
 {% endhighlight %}
 
+Maintenant, il suffit d'ajouter du code qui ne respecte pas ces règles pour voir la magie opérer :)
+Par exemple une variable inutilisée ou des simple quotes dans les attributs JSX.
+
+Ce qui nous donne dans la console :
+{% highlight console %}
+...
+ERROR in ./app/App.jsx
+
+/Users/romaindurandsaintomer/dev/js/react-webpack-starter/app/App.jsx
+  7:13  error  toto is defined but never used       no-unused-vars
+  9:27  error  JSX attributes must use doublequote  react/jsx-quotes
+
+✖ 2 problems (2 errors, 0 warnings)
+...
+{% endhighlight %}
+
 ## The end
-Vous pouvez retrouver tout le code du projet sur mon github : <br> [https://github.com/romaindso/react-webpack-starter][github]
+Vous pouvez retrouver tout le code du projet sur mon github (**webpack.config.js** inclus) : <br> [https://github.com/romaindso/react-webpack-starter][github]
 
 Et pour l'environnement de production ?
 Ça sera l'objet d'un prochain post. A suivre...
 
-Tags: [React, Wepack, ES6]
+Tags: [React, Wepack, ES6, ESLint]
 
 [webpack]: http://webpack.github.io/
 [babeljs]: https://babeljs.io/
@@ -302,4 +325,5 @@ Tags: [React, Wepack, ES6]
 [webpack-dev]: http://webpack.github.io/docs/webpack-dev-server.html
 [localhost]: http://localhost:8080/
 [eslint]: http://eslint.org/
+[rules-eslint]: http://eslint.org/docs/rules
 [github]: https://github.com/romaindso/react-webpack-starter
