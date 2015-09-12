@@ -59,7 +59,7 @@ Passons rapidement en revue ces 3 fichiers :
 </html>
 {% endhighlight %}
 
-`index.html` c'est le fichier de départ chargé par le navigateur web. Lorsque l'on va lancer Webpack, ce dernier va compiler tous nos scripts JS dans le seul fichier `bundle.js`.
+**index.html** c'est le fichier de départ chargé par le navigateur web. Lorsque l'on va lancer Webpack, ce dernier va compiler tous nos scripts JS dans le seul fichier **bundle.js**.
 
 **index.js**
 {% highlight javascript %}
@@ -72,7 +72,7 @@ React.render(
 );
 {% endhighlight %}
 
-Le point d'entrée de l'application React c'est le fichier `index.js`. Il inclut notamment le composant parent `App`. Ce dernier est notre composant React de plus haut niveau, qui contiendra les autres sous-composants. Le contenu du fichier `index.js` permet de faire le pont avec le fichier `index.html`. En effet, c'est dans la méthode *render* qu'on s'attache au DOM sur la div portant l'id **root** (qui se trouve dans notre `index.html`).
+Le point d'entrée de l'application React c'est le fichier **index.js**. Il inclut notamment le composant parent `App`. Ce dernier est notre composant React de plus haut niveau, qui contiendra les autres sous-composants. Le contenu du fichier **index.js** permet de faire le pont avec le fichier **index.html**. En effet, c'est dans la méthode `render` qu'on s'attache au DOM sur la div portant l'id *root* (qui se trouve dans notre **index.html**).
 
 **App.jsx**
 {% highlight javascript %}
@@ -89,7 +89,7 @@ export default class App extends React.Component {
 }
 {% endhighlight %}
 
-Enfin, `App`, notre composant React parent qui inclura tous les autres. Oui oui, c'est bien du JavaScript mais à la sauce ES6. Notre composant est donc une classe qui étend la classe `React.Component`. Sa seule méthode, **render**, ne retourne pour l'instant qu'un simple *Hello World*. Enfin, pour simplifier l'écriture on utilise la syntaxe `JSX` pour écrire nos composants React.
+Enfin, `App`, notre composant React parent qui inclura tous les autres. Oui oui, c'est bien du JavaScript mais à la sauce ES6. Notre composant est donc une classe qui étend la classe `React.Component`. Sa seule méthode, `render`, ne retourne pour l'instant qu'un simple *Hello World*. Enfin, pour simplifier l'écriture on utilise la syntaxe `JSX` pour écrire nos composants React.
 
 ## Wepack
 Ok, le minimum vital pour React est présent, on enchaine maintenant avec [Webpack][webpack] :
@@ -100,7 +100,7 @@ $ npm install webpack --save-dev
 
 Difficile de décrire Webpack en 2 lignes. C'est avant tout un outil pour charger vos scripts JavaScript en tant que module, peu importe leur syntaxe (CommonJS, AMD). Grâce à différents loaders qu'on peu lui ajouter, Webpack est capable de consommer tout ce qui ressemble de près ou de loin à un fichier (CSS, images, json, font, etc). C'est à la fois un super *task runner* et un gestionnaire de modules universel. Imbattable.
 
-Wepack se paramètre grâce à un fichier de config, `webpack.config.js`, qui se place à la racine de votre projet.
+Wepack se paramètre grâce à un fichier de config, **webpack.config.js**, qui se place à la racine de votre projet.
 
 **webpack.config.js**
 {% highlight javascript %}
@@ -142,7 +142,7 @@ $ npm install babel-loader --save-dev
 $ npm install babel-runtime --save
 {% endhighlight %}
 
-On complète notre `webpack.config.js` avec ce nouveau loader fraichement installé :
+On complète notre **webpack.config.js** avec ce nouveau loader fraichement installé :
 {% highlight javascript %}
 ...
 loaders: [
@@ -233,7 +233,7 @@ TADAAaaaa ! Un joli *Hello World* :)
 #### Hot-reload
 La feature ultime de Webpack c'est le Hot-reload. Il est en effet capable de détecter les changements dans votre code et de relancer l'ensemble de l'application. C'est un puissant live-reload capable même de conserver l'état de vos composants React !
 
-Pour l'activer, il faut d'abord ajouter au fichier **index.html** la ligne suivante, juste avant le chargement du script `bundle.js` :
+Pour l'activer, il faut d'abord ajouter au fichier **index.html** la ligne suivante, juste avant le chargement du script **bundle.js** :
 {% highlight html %}
 ...
 <script src="/webpack-dev-server.js"></script>
@@ -261,7 +261,7 @@ Pour en profiter pleinement, voici les éléments à installer :
 $ npm install eslint babel-eslint eslint-plugin-react eslint-loader --save-dev
 {% endhighlight %}
 
-ESLint se base sur un fichier de configuration pour définir les différentes règles. Ce fichier c'est le `.eslintrc` et on le place en général à la racine de son projet (comme le `webpack.config.js`).
+ESLint se base sur un fichier de configuration pour définir les différentes règles. Ce fichier c'est le **.eslintrc** et on le place en général à la racine de son projet (comme le **webpack.config.js**).
 
 **.eslintrc**
 {% highlight javascript %}
@@ -303,7 +303,7 @@ ESLint se base sur un fichier de configuration pour définir les différentes r�
 }
 {% endhighlight %}
 
-Par défaut ESLint intègre quelques règles qu'il est possible d'overrider dans le fichier `.eslintrc`. Chaque règle est suivie d'un numéro : 0 = règle désactivée, 1 = warning, 2 = erreur bloquante. N'hésitez pas à consulter la [liste des règles][rules-eslint].
+Par défaut ESLint intègre quelques règles qu'il est possible d'overrider dans le fichier **.eslintrc**. Chaque règle est suivie d'un numéro : 0 = règle désactivée, 1 = warning, 2 = erreur bloquante. N'hésitez pas à consulter la [liste des règles][rules-eslint].
 
 Il faut maintenant exécuter ces règles côté Webpack. À la place d'un loader, on utilise un preloader, on s'assure ainsi que ESLint s'exécute avant toute autre opération (transpilation, compilation, etc etc).
 
