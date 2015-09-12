@@ -214,10 +214,12 @@ $ npm install webpack --save-dev
 {% endhighlight %}
 
 Après l'avoir installé, on choisit un numéro de port inutilisé, ici `8080`, et on ajoute un script au **package.json** :
-{% highlight console %}
+{% highlight javascript %}
+...
 "scripts": {
-  "start": "webpack-dev-server --port 8080 --content-base build/"
+  "start": "webpack-dev-server --port 8080"
 }
+...
 {% endhighlight %}
 
 On lance enfin l'ensemble :
@@ -241,7 +243,7 @@ Pour l'activer, il faut d'abord ajouter au fichier **index.html** la ligne suiva
 Et on complète avec deux nouvelles options notre script `npm start` dans le **package.json** :
 {% highlight javascript %}
 ...
-"start": "webpack-dev-server --port 8080 --hot --inline --content-base build/"
+"start": "webpack-dev-server --port 8080 --hot --inline"
 ...
 {% endhighlight %}
 
@@ -334,10 +336,10 @@ ERROR in ./app/App.jsx
 
 ## The end
 Pfiou... enfin terminé, prêt à coder  ! <br>
-Vous pouvez retrouver tout le code du projet sur mon github (**webpack.config.js** inclus) : <br> [https://github.com/romaindso/react-webpack-starter][github]
+Vous pouvez retrouver tout le code du projet sur mon github [https://github.com/romaindso/react-webpack-starter][github] et le fichier de configuration webpack sur ce [gist][gist].
 
-Et pour l'environnement de production ?
-A suivre...
+Et pour l'environnement de production ? <br>
+La suite dans cet article [http://romaindso.github.io/webpack-pour-la-production/][post-webpack-prod]
 
 Tags: [React, Wepack, ES6, ESLint]
 
@@ -349,3 +351,5 @@ Tags: [React, Wepack, ES6, ESLint]
 [eslint]: http://eslint.org/
 [rules-eslint]: http://eslint.org/docs/rules
 [github]: https://github.com/romaindso/react-webpack-starter
+[gist]: https://gist.github.com/romaindso/0495af3fdbcda48e5b9e
+[post-webpack-prod]: http://romaindso.github.io/webpack-pour-la-production/
