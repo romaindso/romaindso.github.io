@@ -4,11 +4,12 @@ title: "How to serve the \"Compressed\" folder with Express in an Unity WebGL re
 date:   2015-07-18 12:48:45
 description: "How to serve the \"Compressed\" folder with Express in an Unity WebGL release ?"
 categories:
-- blog
+- express
+- webgl
 permalink: how-to-serve-unity-webgl-compress-folder-with-express
 ---
 
-Recently, Google killed the Unity web plugin (and many others) when they released Chrome 42 which block by default NPAPI support. For now, it's still possible to reactivate this support by enabling a special flag in Chrome (chrome://flags/#enable-npapi). 
+Recently, Google killed the Unity web plugin (and many others) when they released Chrome 42 which block by default NPAPI support. For now, it's still possible to reactivate this support by enabling a special flag in Chrome (chrome://flags/#enable-npapi).
 
 But the final countdown for NPAPI continue :
 

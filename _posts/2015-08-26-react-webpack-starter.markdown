@@ -4,9 +4,11 @@ title:  "React Webpack Starter"
 date:   2015-08-26 21:35:01
 description: Mise en place d'une stack de développement efficace avec React / Webpack, en profitant de la syntaxe ES6 et d'un outil de qualité de code (ESLint).
 categories:
-- blog
+- webpack
+- react
 permalink: react-webpack-starter
 ---
+
 Mettre en place une stack de développement efficace et rapide pour travailler avec React ça prend un peu de temps. Bénéficier du hot reload, charger correctement ses ressources statiques, linter son code ou encore utiliser la nouvelle syntaxe ES6 c'est autant d'éléments à configurer.
 
 Avec Webpack c'est pas sorcier mais c'est souvent synonyme d'heures perdues à mettre en place l'ensemble.

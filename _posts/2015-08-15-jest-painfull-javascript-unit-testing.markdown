@@ -4,7 +4,8 @@ title:  "Jest, Painfull JavaScript Unit Testing"
 date:   2015-08-15 19:13:54
 description: Jest, Painfull JavaScript Unit Testing
 categories:
-- blog
+- react
+- tests
 permalink: jest-painfull-javascript-unit-testing
 ---
 

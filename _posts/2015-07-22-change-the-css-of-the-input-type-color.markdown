@@ -4,14 +4,15 @@ title:  "Change the CSS of the input type=\"color\""
 date:   2015-07-22 19:13:54
 description: Change the CSS of the input type=\"color\"
 categories:
-- blog
+- html
+- css
 permalink: change-the-css-of-the-input-type-color
 ---
 
-If you don't know the `<input type="color"/>` let Mozilla introduce him to you : 
+If you don't know the `<input type="color"/>` let Mozilla introduce him to you :
 > The input type="color" represents a color well control, for setting the element's value to a string representing a simple color. A control for specifying a color. A color picker's UI has no required features other than accepting simple colors as text (more info). > - By [Mozilla Developper Network][MDN]
 
-Sounds great, right ? 
+Sounds great, right ?
 <br/>=> 2 things :
 
 1. [IE don't like colors][canisue], IE11 included and probably Edge (Ex Spartan)
@@ -58,7 +59,7 @@ Luckily, `opacity` is here. All we have to do is to set the input color opacity 
         var colorPicker = document.getElementById("colorPicker");
         var wrapper = document.getElementById("wrapper");
         wrapper.style.backgroundColor = colorPicker.value;
-        
+
         wrapper.addEventListener("change", function () {
             wrapper.style.backgroundColor = colorPicker.value;
         });
@@ -79,7 +80,7 @@ Luckily, `opacity` is here. All we have to do is to set the input color opacity 
 	}
 </style>
 <div>
-    <span style="font-size: 1.125rem;">And this how it's looks like with a little border-radius :</span> 
+    <span style="font-size: 1.125rem;">And this how it's looks like with a little border-radius :</span>
     <div id="wrapper">
         <input id="colorPicker" type="color" value="#4285F4" />
     </div>
@@ -87,7 +88,7 @@ Luckily, `opacity` is here. All we have to do is to set the input color opacity 
         var colorPicker = document.getElementById("colorPicker");
         var wrapper = document.getElementById("wrapper");
         wrapper.style.backgroundColor = colorPicker.value;
-        
+
         wrapper.addEventListener("change", function () {
             wrapper.style.backgroundColor = colorPicker.value;
         });
