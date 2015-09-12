@@ -106,9 +106,11 @@ module.exports = devConfig;
 #### Configuration de production
 Même principe que pour la configuration de développement. On inclut la config de base et on enrichit/surcharge avec les propriétés spécifiques à la production.
 
-On commence par se passer du plugin *ExtractTextPlugin* qui permettait d'extraire les CSS dans une feuille de styles dédiée et on supprime également l'option `devtool`.
+On commence par se passer du plugin `ExtractTextPlugin` qui permettait d'extraire les CSS dans une feuille de styles dédiée et on supprime également l'option `devtool`.
 
-A l'inverse, on ajoute le plugin *UglifyJsPlugin* embarqué nativement par Webpack. Ce dernier permet de minifier nos scripts et nos feuilles de styles. Avec un environnement React, ce plugin génère quelques warnings superflus, on va donc les désactivés.
+A l'inverse, on ajoute le plugin `UglifyJsPlugin` embarqué nativement par Webpack. Ce dernier permet de minifier nos scripts et nos feuilles de styles. Avec un environnement React, ce plugin génère quelques warnings superflus, on va donc les désactivés.
+
+Second plugin utile pour la production, `DedupePlugin`, en charge d'éliminer les doublons lorsque des libs utilisent des dépendances communes.
 
 {% highlight javascript %}
 var baseConfig = require('./webpack.base.config.js');
@@ -128,7 +130,8 @@ var prodConfig = {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        new webpack.optimize.DedupePlugin()
     ]
 };
 
