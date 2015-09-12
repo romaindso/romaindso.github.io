@@ -7,14 +7,14 @@ categories:
 - blog
 permalink: react-webpack-starter
 ---
-Mettre en place une stack de développement efficace et rapide pour travailler avec React ça prend en peu de temps. Bénéficier du hot reload, charger correctement ses ressources statiques, linter son code ou encore utiliser la nouvelle syntaxe ES6 c'est autant d'éléments à configurer.
+Mettre en place une stack de développement efficace et rapide pour travailler avec React ça prend un peu de temps. Bénéficier du hot reload, charger correctement ses ressources statiques, linter son code ou encore utiliser la nouvelle syntaxe ES6 c'est autant d'éléments à configurer.
 
 Avec Webpack c'est pas sorcier mais c'est souvent synonyme d'heures perdues à mettre en place l'ensemble.
 
 Deux façons donc de lire cet article :
 
 - vous êtes déjà familier de cet environnement et vous pouvez directement cloner le projet **react-webpack-starter** dispo sur mon [github][github] pour commencer votre nouvelle application.
-- vous démarrez sur React et/ou Webpack, vous pouvez suivre pas à pas cet article pour comprendre la stack mise en place
+- vous démarrez sur React et/ou Webpack, vous pouvez suivre pas à pas cet article pour comprendre la stack mise en place.
 
 Enjoy :)
 
@@ -37,7 +37,7 @@ Avant d'aller plus loin, découvrons l'arborescence de notre projet React :
         - App.jsx
         - index.js
     - build
-        - bundle.js **contenu géneré**
+        - bundle.js **contenu généré**
         - index.html
 
 Passons rapidement en revue ces 3 fichiers :
@@ -59,7 +59,7 @@ Passons rapidement en revue ces 3 fichiers :
 </html>
 {% endhighlight %}
 
-`index.html` c'est le fichier de départ chargé par le navigateur web. Lorsque l'on va lancer Webpack, ce dernier va compiler tout nos scripts JS dans le seul fichier `bundle.js`.
+`index.html` c'est le fichier de départ chargé par le navigateur web. Lorsque l'on va lancer Webpack, ce dernier va compiler tous nos scripts JS dans le seul fichier `bundle.js`.
 
 **index.js**
 {% highlight javascript %}
@@ -72,7 +72,7 @@ React.render(
 );
 {% endhighlight %}
 
-Le point d'entrée de l'application React c'est le fichier `index.js`. Il inclut notamment le composant parent `App`. Ce dernier est notre composant React de plus haut niveau, qui contiendra les autres sous composants. Le contenu du fichier `index.js` permet de faire le pont avec le fichier `index.html`. En effet, c'est dans la méthode *render* qu'on s'attache au DOM sur la div portant l'id **root** (qui se trouve dans notre `index.html`).
+Le point d'entrée de l'application React c'est le fichier `index.js`. Il inclut notamment le composant parent `App`. Ce dernier est notre composant React de plus haut niveau, qui contiendra les autres sous-composants. Le contenu du fichier `index.js` permet de faire le pont avec le fichier `index.html`. En effet, c'est dans la méthode *render* qu'on s'attache au DOM sur la div portant l'id **root** (qui se trouve dans notre `index.html`).
 
 **App.jsx**
 {% highlight javascript %}
@@ -89,7 +89,7 @@ export default class App extends React.Component {
 }
 {% endhighlight %}
 
-Enfin, `App`, notre composant React parent qui inclura tous les autres. Oui oui, c'est bien du JavaScript mais à la sauce ES6. Notre composant est donc une classe qui étend la classe React.Component. Sa seule méthode, **render**, retourne pour l'instant qu'un simple *Hello World*. Enfin, pour simplifier l'écriture on utilise la syntaxe `JSX` pour écrire nos composants React.
+Enfin, `App`, notre composant React parent qui inclura tous les autres. Oui oui, c'est bien du JavaScript mais à la sauce ES6. Notre composant est donc une classe qui étend la classe `React.Component`. Sa seule méthode, **render**, ne retourne pour l'instant qu'un simple *Hello World*. Enfin, pour simplifier l'écriture on utilise la syntaxe `JSX` pour écrire nos composants React.
 
 ## Wepack
 Ok, le minimum vital pour React est présent, on enchaine maintenant avec [Webpack][webpack] :
@@ -98,9 +98,9 @@ Ok, le minimum vital pour React est présent, on enchaine maintenant avec [Webpa
 $ npm install webpack --save-dev
 {% endhighlight %}
 
-Difficile de décrire Webpack en 2 lignes. C'est avant tout un outil pour charger vos scripts JavaScript en tant que module, peut importe leur syntaxe (CommonJS, AMD). Grâce à différents loaders qu'on peu lui ajouter, Webpack est capable de consommer tout ce qui ressemble de près ou de loin à un fichier (CSS, images, json, font, etc). C'est à la fois un super task runner et un gestionnaire de modules universel. Imbattable.
+Difficile de décrire Webpack en 2 lignes. C'est avant tout un outil pour charger vos scripts JavaScript en tant que module, peu importe leur syntaxe (CommonJS, AMD). Grâce à différents loaders qu'on peu lui ajouter, Webpack est capable de consommer tout ce qui ressemble de près ou de loin à un fichier (CSS, images, json, font, etc). C'est à la fois un super *task runner* et un gestionnaire de modules universel. Imbattable.
 
-Wepack se paramètre grâce à un fichier de config, **le webpack.config.js** qui se place à la racine de votre projet.
+Wepack se paramètre grâce à un fichier de config, `webpack.config.js`, qui se place à la racine de votre projet.
 
 **webpack.config.js**
 {% highlight javascript %}
@@ -128,21 +128,21 @@ Passons en revue les différentes lignes :
 - entry : le point d'entrée de votre application
 - output.path : le répertoire de sortie utilisé par Webpack
 - output.filename : le fichier généré qui contient tous nos scipts JS concaténés
-- publicPath : la base url
+- publicPath : la *base url*
 - module.loaders : un tableau contenant les différents loaders
-- resolve.extensions : les extensions à résoudre par Webpack. On n'oublie pas de préciser l'extension JSX qu'on utlilise pour React.
+- resolve.extensions : les extensions à résoudre par Webpack. On n'oublie pas de préciser l'extension `JSX` qu'on utlilise pour React.
 
 On poursuit avec Webpack en lui ajoutant différents loaders.
 
 #### Babel
-Aujourd'hui la syntaxe ES6 n'est pas encore comprise par tous les navigateurs internet, on va donc utiliser [babeljs][babeljs] pour transpiler notre code en ES5. Cela va permettre d'utiliser les nouvelles [features][features] ES6 dès aujourd'hui !
+Aujourd'hui la syntaxe ES6 n'est pas encore comprise par tous les navigateurs internet, on va donc utiliser [babeljs][babeljs] pour transpiler notre code en ES5. Cela va permettre d'utiliser les [nouvelles features ES6][features] dès aujourd'hui !
 
 {% highlight console %}
-npm install babel-loader --save-dev
-npm install babel-runtime --save
+$ npm install babel-loader --save-dev
+$ npm install babel-runtime --save
 {% endhighlight %}
 
-On complète notre **webpack.config.js** avec ce nouveau loader fraichement installé :
+On complète notre `webpack.config.js` avec ce nouveau loader fraichement installé :
 {% highlight javascript %}
 ...
 loaders: [
@@ -156,12 +156,12 @@ loaders: [
 {% endhighlight %}
 
 #### CSS/SASS
-Le chargement des CSS nécessite deux loaders : `css-loader` et `style-loader`. Le premier a pour but de résoudre les url() tandis que le second injecte directement les CSS dans une balise style au sein du body de la page. On ne va pas se priver d'écrire en SASS, on complète donc avec le `sass-loader` capable de gérer ce format et d'assurer la compilation. Par défaut, Webpack charge en inline toutes les feuilles de style. Cela donne du code très difficile à débugger. Heureusement, grâce au plugin `ExtractTextPlugin` il est à la fois possible d'extraire nos CSS dans un seul fichier externe et d'activer les sources maps pour s'y retrouver.
+Le chargement des CSS nécessite deux loaders : `css-loader` et `style-loader`. Le premier a pour but de résoudre les `url(...)` tandis que le second injecte directement les CSS dans une balise style au sein du body de la page. On ne va pas se priver d'écrire en SASS, on complète donc avec le `sass-loader` capable de gérer ce format et d'assurer la compilation. Par défaut, Webpack charge en inline toutes les feuilles de style. Cela donne du code très difficile à débugger. Heureusement, grâce au plugin `ExtractTextPlugin` il est à la fois possible d'extraire nos CSS dans un seul fichier externe et d'activer les *sources maps* pour s'y retrouver.
 
 On installe les 3 loaders :
 {% highlight console %}
-npm install sass-loader css-loader style-loader --save-dev
-npm install extract-text-webpack-plugin --save-dev
+$ npm install sass-loader css-loader style-loader --save-dev
+$ npm install extract-text-webpack-plugin --save-dev
 {% endhighlight %}
 
 Et on met à jour notre config Webpack :
@@ -190,7 +190,7 @@ plugins: [
 #### Images et fonts
 Pour le chargement des images et des fonts on va utiliser `url-loader`. On lui passe en paramètre une limite de poids en dessous de laquelle le loader charge le fichier en base 64 pour un gain de performance.
 {% highlight console %}
-npm install url-loader --save-dev
+$ npm install url-loader --save-dev
 {% endhighlight %}
 
 **webpack.config.js**
@@ -214,10 +214,12 @@ $ npm install webpack --save-dev
 {% endhighlight %}
 
 Après l'avoir installé, on choisit un numéro de port inutilisé, ici `8080`, et on ajoute un script au **package.json** :
-{% highlight console %}
+{% highlight javascript %}
+...
 "scripts": {
   "start": "webpack-dev-server --port 8080 --content-base build/"
 }
+...
 {% endhighlight %}
 
 On lance enfin l'ensemble :
@@ -259,7 +261,8 @@ Pour en profiter pleinement, voici les éléments à installer :
 $ npm install eslint babel-eslint eslint-plugin-react eslint-loader --save-dev
 {% endhighlight %}
 
-ESLint se base sur un fichier de configuration pour définir les différentes règles. Ce fichier c'est le `.eslintrc` et on le place en général à la racine de son projet (comme le webpack.config.js).
+ESLint se base sur un fichier de configuration pour définir les différentes règles. Ce fichier c'est le `.eslintrc` et on le place en général à la racine de son projet (comme le `webpack.config.js`).
+
 **.eslintrc**
 {% highlight javascript %}
 {
@@ -302,7 +305,8 @@ ESLint se base sur un fichier de configuration pour définir les différentes r�
 
 Par défaut ESLint intègre quelques règles qu'il est possible d'overrider dans le fichier `.eslintrc`. Chaque règle est suivie d'un numéro : 0 = règle désactivée, 1 = warning, 2 = erreur bloquante. N'hésitez pas à consulter la [liste des règles][rules-eslint].
 
-Il faut maintenant exécuter ces règles côté Webpack. A la place d'un loader, on utilise un preloader, on s'assure ainsi que ESLint s'exécute avant toute autre opération (transpilation, compilation, etc etc).
+Il faut maintenant exécuter ces règles côté Webpack. À la place d'un loader, on utilise un preloader, on s'assure ainsi que ESLint s'exécute avant toute autre opération (transpilation, compilation, etc etc).
+
 **webpack.config.js**
 {% highlight javascript %}
 ...
