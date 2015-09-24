@@ -9,7 +9,7 @@ categories:
 permalink: webpack-pour-la-production
 ---
 
-Dans le [précédant article][precedant-article], on a vu comment mettre en place une stack de développement autour de React et Webpack. Parce que vous etes (surement) entrain de lancer le prochain Facebook, il va falloir créer la configuration adéquate pour packager l'appli en mode production. <br><br>Au programme : minification des assets, optimisations diverses et désactivation des sources-map et du débug.
+Dans le [précédent article][precedent-article], on a vu comment mettre en place une stack de développement autour de React et Webpack. Parce que vous etes (surement) entrain de lancer le prochain Facebook, il va falloir créer la configuration adéquate pour packager l'appli en mode production. <br><br>Au programme : minification des assets, optimisations diverses et désactivation des sources-map et du débug.
 
 Pour s'aider, on va repartir du tuto précédant et réutiliser le **webpack.config.js** disponible sur ce [gist][gist]. Ce dernier correspond à une configuration Webpack de développement. L'idée c'est de conserver ce fichier pour le mode développement et d'en créer un second pour le mode production.
 
@@ -193,7 +193,7 @@ A vous de jouer !
 
 Tags: [Production, Wepack, React, ES6]
 
-[precedant-article]: http://romaindso.github.io/react-webpack-starter/
+[precedent-article]: http://romaindso.github.io/react-webpack-starter/
 [gist]: https://gist.github.com/romaindso/0495af3fdbcda48e5b9e
 [lodash]: http://devdocs.io/lodash/
 [ici1]: http://webpack.github.io/docs/cli.html#production-shortcut-p
